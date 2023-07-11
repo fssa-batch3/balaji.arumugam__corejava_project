@@ -1,4 +1,4 @@
-package day03.misc;
+package com.fssa.balaji.day03.misc;
 
 public class Sand {
 

@@ -1,4 +1,4 @@
-package day03.practice;
+package com.fssa.balaji.day03.practice;
 
 public class TestEmployee {
 	 

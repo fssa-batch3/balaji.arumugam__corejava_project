@@ -1,4 +1,4 @@
-package day03.solved;
+package com.fssa.balaji.day03.solved;
 
 class Account2 {
 

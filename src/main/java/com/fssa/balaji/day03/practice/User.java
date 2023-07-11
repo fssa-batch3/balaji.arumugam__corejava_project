@@ -1,4 +1,4 @@
-package day03.practice;
+package com.fssa.balaji.day03.practice;
 
 
 class Details {
@@ -50,9 +50,9 @@ public class User {
 
 		// create Account using Setter methods and Default constructor
 		Details d = new Details();
-		d.setName("sri");
-		d.setPassword("Srik@2003");
-		d.setEmailid("Sri@gmail.com");
+		d.setName("Balaji");
+		d.setPassword("Balaji@2002");
+		d.setEmailid("Balaji@gmail.com");
 
 		System.out.println(d.getName() + ", " + d.getPassword() + ", "
 				+ d.getEmailid());
