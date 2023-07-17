@@ -50,7 +50,7 @@ public static boolean addTaskToList(Task task) throws IllegalArgumentException {
     	 
     	 ArrayList<Task> Task = new ArrayList<> ();
     	 
-    	Task task1 = new Task("Bitwise",5);
+    	Task task1 = new Task("Java",5);
  		
  		Task.add(task1);
      }
