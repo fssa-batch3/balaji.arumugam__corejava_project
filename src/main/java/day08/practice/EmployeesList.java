@@ -6,34 +6,33 @@ import java.util.Scanner;
 public class EmployeesList {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int count = 0;
-		int num = 3;
-		HashMap<String, ArrayList<String>> countMap = new HashMap<String, ArrayList<String>>();
-		System.out.println("Enter min " + num + " details :");
-		while (count < num) {
+		int cnt = 0;
+		int num = 4;
+		HashMap<String, ArrayList<String>> cntMap = new HashMap<String, ArrayList<String>>();
+		while (cnt < num) {
 			String s = sc.nextLine();
 			String[] ar = s.split(",");
-			int check = 0;
-			for (String deptName : countMap.keySet()) {
+			int result = 0;
+			for (String deptName : cntMap.keySet()) {
 				if (ar[0].equals(deptName)) {
-					check = 1;
+					result = 1;
 				}
 			}
-			if (check == 1) {
-				ArrayList<String> arr = countMap.get(ar[0]);
+			if (result == 1) {
+				ArrayList<String> arr = cntMap.get(ar[0]);
 				arr.add(ar[1]);
-				countMap.put(ar[0], arr);
+				cntMap.put(ar[0], arr);
 			}
 			else {
 				ArrayList<String> arr = new ArrayList<String>();
 				arr.add(ar[1]);
-				countMap.put(ar[0], arr);
+				cntMap.put(ar[0], arr);
 			}
-			count++;
+			cnt++;
 		}
-		System.out.println(countMap.keySet());
-		for (String n : countMap.keySet()) {
-			System.out.println(n + " : " + countMap.get(n));
+		System.out.println(cntMap.keySet());
+		for (String n : cntMap.keySet()) {
+			System.out.println(n + " : " + cntMap.get(n));
 		}
 	}
 }
