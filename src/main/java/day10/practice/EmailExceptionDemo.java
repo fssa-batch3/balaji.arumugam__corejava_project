@@ -65,4 +65,60 @@ public class EmailExceptionDemo {
 	
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void insert(String name, String email, String dob) {
+		
+		String query = "insert into student (name, email, dob)values("+name+","+email+","+dob+")";
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
