@@ -1,38 +1,88 @@
 package day08.practice;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
+
 public class EmployeesList {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int cnt = 0;
-		int num = 4;
-		HashMap<String, ArrayList<String>> cntMap = new HashMap<String, ArrayList<String>>();
-		while (cnt < num) {
-			String s = sc.nextLine();
-			String[] ar = s.split(",");
-			int result = 0;
-			for (String deptName : cntMap.keySet()) {
-				if (ar[0].equals(deptName)) {
-					result = 1;
-				}
+
+		Scanner scan = new Scanner(System.in);
+		Map<String, List<String>> departmentEmployees = new TreeMap<>();
+
+		for (int i = 0; i < 5; i++) {
+			System.out.println("Enter input like :Hr,Name");
+			String str = scan.nextLine();
+			if (str == null || "".equals(str)) {
+
+				throw new IllegalArgumentException("Input cant't be Empty or Null");
 			}
-			if (result == 1) {
-				ArrayList<String> arr = cntMap.get(ar[0]);
-				arr.add(ar[1]);
-				cntMap.put(ar[0], arr);
+
+			String[] arrstr = str.split(",");
+
+			if (arrstr.length < 2 || arrstr.length > 2) {
+				throw new IllegalArgumentException("Input Must have department and employee name");
 			}
-			else {
-				ArrayList<String> arr = new ArrayList<String>();
-				arr.add(ar[1]);
-				cntMap.put(ar[0], arr);
+
+			if (departmentEmployees.get(arrstr[0]) == null) {
+				departmentEmployees.put(arrstr[0], new ArrayList<>());
+				departmentEmployees.get(arrstr[0]).add(arrstr[1]);
+			} else {
+				departmentEmployees.get(arrstr[0]).add(arrstr[1]);
 			}
-			cnt++;
+
 		}
-		System.out.println(cntMap.keySet());
-		for (String n : cntMap.keySet()) {
-			System.out.println(n + " : " + cntMap.get(n));
+		for (Map.Entry<String, List<String>> ex : departmentEmployees.entrySet()) {
+			String departName = ex.getKey();
+			List<String> empNames = ex.getValue();
+//	Collections.sort(empNames);
+			System.out.println(departName + ": " + empNames);
+
 		}
+		scan.close();
+
+	}
+
+	public static boolean departmentNameEmployees(ArrayList<String> depOfEmployees) throws IllegalArgumentException {
+		if (depOfEmployees == null) {
+
+			throw new IllegalArgumentException("Array cant't be Empty or Null");
+		}
+
+		Map<String, List<String>> departmentEmployees = new TreeMap<>();
+
+		System.out.println("Enter input like :Hr,Name");
+
+		for (int i = 0; i < depOfEmployees.size(); i++) {
+			System.out.println("Enter input like :Hr,Name");
+			String str = depOfEmployees.get(i);
+			if (str == null || "".equals(str)) {
+
+				throw new IllegalArgumentException("Input cant't be Empty or Null");
+			}
+
+			String[] arrstr = str.split(",");
+
+			if (arrstr.length < 2 || arrstr.length > 2) {
+				throw new IllegalArgumentException("Input Must have department and employee name");
+			}
+
+			if (departmentEmployees.get(arrstr[0]) == null) {
+				departmentEmployees.put(arrstr[0], new ArrayList<>());
+				departmentEmployees.get(arrstr[0]).add(arrstr[1]);
+			} else {
+				departmentEmployees.get(arrstr[0]).add(arrstr[1]);
+			}
+
+		}
+
+		for (Map.Entry<String, List<String>> ex : departmentEmployees.entrySet()) {
+			String departName = ex.getKey();
+			List<String> empNames = ex.getValue();
+			Collections.sort(empNames);
+			System.out.println(departName + ": " + empNames);
+
+		}
+
+		return true;
+
 	}
 }
